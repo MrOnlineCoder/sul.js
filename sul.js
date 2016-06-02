@@ -33,6 +33,11 @@ SUL_Object.prototype.show = function() {
 	return this;
 };
 
+SUL_Object.prototype.hasClass = function(c) {
+	return this.native.className.indexOf(c) > -1;
+};
+
 function SUL(selector) {
 	return new SUL_Object(document.querySelector(selector));
 };
+

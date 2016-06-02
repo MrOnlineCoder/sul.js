@@ -7,7 +7,7 @@ This library is a "lighter" and "smaller" version of jQuery. You can use it, whe
 
 1.Operations with element contents (html, value, etc) (DONE)
 
-2.Simple CSS functions (show, hide, etc) (WIP)
+2.Simple CSS functions (show, hide, classes, etc) (WIP)
 
 3.Chaining (DONE)
 
@@ -71,5 +71,4 @@ Note, that SUL supports chaining.
 SUL("#id").html("Hello World!").show();
 ```
 
-
-
+**See test.html for working example**

@@ -23,6 +23,11 @@
 		<button onclick="testHide()">Hide</button>
 		<br>
 		<br>
+	5.Classes
+		<div id="testClass" class="example myclass">Div with "example myclass" classes</div><br>
+		<button onclick="testClass()">hasClass("example")</button>
+		<br>
+		<br>
 	<script src="sul.js"></script>
 	<script type="text/javascript">
 		console.log("[1] "+SUL("#test").html());
@@ -44,6 +49,10 @@
 
 		function testHide() {
 			SUL("#testShowHide").hide();
+		}
+
+		function testClass() {
+			alert(SUL("#testClass").hasClass("example"));
 		}
 	</script>
 </body>
