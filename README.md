@@ -64,7 +64,16 @@ SUL("#id").hide();
 //Show element
 SUL("#id").show();
 ```
-5. Chaining
+
+5.CSS Classes
+Use *.hasClass()* function to check, if elements has specified class.
+```javascript
+
+SUL("#id").hasClass("awesomeclass");
+
+```
+
+- Chaining
 Note, that SUL supports chaining.
 
 ```javascript
