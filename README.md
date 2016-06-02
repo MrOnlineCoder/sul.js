@@ -3,6 +3,17 @@ Simple Utility Library
 
 This library is a "lighter" and "smaller" version of jQuery. You can use it, when you need simple operations with DOM and you do not want to load big library.
 
+**What it supports:**
+1.Operations with element contents (html, value, etc) (DONE)
+2.Simple CSS functions (show, hide, etc) (WIP)
+3.Chaining (DONE)
+4.Simplified AJAX (TODO)
+5.Events (TODO)
+
+**What it WON'T support:**
+1.Data-atrributes
+2.Advanced effects 
+
 ## Documentation:
 
 1.Getting the element
