@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+</head>
+<body>
+	1.Getting SUL object
+		<div id="test"><strong>This text must appear in console.</strong></div>
+		<br>
+	2.Updating inner HTML
+		<button onclick="testHtml()">Update</button>
+		<br>
+		<br>
+	3.Value
+		<input id="testInput"><br>
+		<button onclick="testValUpdate()">Update value</button><br>
+		<button onclick="testVal()">Get value</button><br>
+		<br>
+		<br>
+	4.Show/Hide
+		<div id="testShowHide">Just the div</div><br>
+		<button onclick="testShow()">Show</button>
+		<button onclick="testHide()">Hide</button>
+		<br>
+		<br>
+	<script src="sul.js"></script>
+	<script type="text/javascript">
+		console.log("[1] "+SUL("#test").html());
+		function testHtml() {
+			SUL("#test").html("YAY!");
+		}
+
+		function testValUpdate() {
+			SUL("#testInput").val("YAY!");
+		}
+
+		function testVal() {
+			alert(SUL("#testInput").val());
+		}
+
+		function testShow() {
+			SUL("#testShowHide").show();
+		}
+
+		function testHide() {
+			SUL("#testShowHide").hide();
+		}
+	</script>
+</body>
+</html>
