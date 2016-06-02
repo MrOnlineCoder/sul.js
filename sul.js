@@ -37,7 +37,21 @@ SUL_Object.prototype.hasClass = function(c) {
 	return this.native.className.indexOf(c) > -1;
 };
 
+SUL_Object.prototype.addClass = function(c) {
+	this.native.className += (" "+c); 
+	return this;
+};
+
+SUL_Object.prototype.removeClass = function(c) {
+	this.native.className = this.native.className.replace(c, "").trim();
+	return this;
+};
+
+SUL_Object.prototype.on = function(event, handler) {
+	this.native.addEventListener(event, handler);
+	return this;
+};
+
 function SUL(selector) {
 	return new SUL_Object(document.querySelector(selector));
 };
-

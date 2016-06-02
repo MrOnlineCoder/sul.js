@@ -26,11 +26,20 @@
 	5.Classes
 		<div id="testClass" class="example myclass">Div with "example myclass" classes</div><br>
 		<button onclick="testClass()">hasClass("example")</button>
+		<button onclick="testAddClass()">Add class "foo"</button>
+		<button onclick="testRemoveClass()">Remove class "foo"</button>
+		<br>
+		<br>
+	6.Events
+		<div id="testEvent">Click me</div><br>
 		<br>
 		<br>
 	<script src="sul.js"></script>
 	<script type="text/javascript">
 		console.log("[1] "+SUL("#test").html());
+		SUL("#testEvent").on("click", function() {
+			alert("Clicked!");
+		});
 		function testHtml() {
 			SUL("#test").html("YAY!");
 		}
@@ -53,6 +62,16 @@
 
 		function testClass() {
 			alert(SUL("#testClass").hasClass("example"));
+		}
+
+		function testAddClass() {
+			SUL("#testClass").addClass("foo");
+			alert("Does element have class foo? - "+SUL("#testClass").hasClass("foo"));
+		}
+
+		function testRemoveClass() {
+			SUL("#testClass").removeClass("foo");
+			alert("Does element have class foo? - "+SUL("#testClass").hasClass("foo"));
 		}
 	</script>
 </body>

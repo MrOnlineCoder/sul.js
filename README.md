@@ -73,7 +73,19 @@ SUL("#id").hasClass("awesomeclass");
 
 ```
 
+Use *.addClass()* and *.removeClass()* functions to remove or add classes.
+```javascript
+
+//Add class
+SUL("#id").addClass("awesomeclass");
+
+//Remove class
+SUL("#id").removeClass("awesomeclass");
+
+```
+
 - Chaining
+
 Note, that SUL supports chaining.
 
 ```javascript
