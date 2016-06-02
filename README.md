@@ -25,6 +25,7 @@ This library is a "lighter" and "smaller" version of jQuery. You can use it, whe
 ## Documentation:
 
 1.Getting the element
+
 Use *SUL()* function to get the SUL wrapper of DOM element.
 ```javascript
 
@@ -32,6 +33,7 @@ SUL("#id");
 
 ```
 2.Working with inner HTML
+
 Use *.html()* function to get or update inner HTML of element.
 
 ```javascript
@@ -44,6 +46,7 @@ SUL("#id").html("Updated content");
 ```
 
 3.Working with input values
+
 Use *.val()* function to get or update value of input element.
 
 ```javascript
@@ -55,6 +58,7 @@ SUL("#id").val("Updated value");
 ```
 
 4.Show/Hide element
+
 Use *.hide()* and *.show()* function to toggle element visibility.
 
 ```javascript
@@ -66,6 +70,7 @@ SUL("#id").show();
 ```
 
 5.CSS Classes
+
 Use *.hasClass()* function to check, if elements has specified class.
 ```javascript
 
@@ -74,6 +79,7 @@ SUL("#id").hasClass("awesomeclass");
 ```
 
 Use *.addClass()* and *.removeClass()* functions to remove or add classes.
+
 ```javascript
 
 //Add class

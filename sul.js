@@ -1,3 +1,10 @@
+/*
+	SUL JavaScript Library
+	Author: MrOnlineCoder (https://github.com/MrOnlineCoder)
+	License: MIT
+	2016
+*/
+
 'use strict';
 
 function SUL_Object(domElement) {
