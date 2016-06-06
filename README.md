@@ -7,13 +7,13 @@ This library is a "lighter" and "smaller" version of jQuery. You can use it, whe
 
 1.Operations with element contents (html, value, etc) (DONE)
 
-2.Simple CSS functions (show, hide, classes, etc) (WIP)
+2.Simple CSS functions (show, hide, classes, etc) (DONE)
 
 3.Chaining (DONE)
 
-4.Simplified AJAX (TODO)
+4.Events (DONE)
 
-5.Events (TODO)
+5.Simplified AJAX (TODO)
 
 
 **What it WON'T support:**
@@ -71,7 +71,7 @@ SUL("#id").show();
 
 5.CSS Classes
 
-Use *.hasClass()* function to check, if elements has specified class.
+Use *.hasClass()* function to check, if element has specified class.
 ```javascript
 
 SUL("#id").hasClass("awesomeclass");
@@ -90,7 +90,19 @@ SUL("#id").removeClass("awesomeclass");
 
 ```
 
-- Chaining
+6.Events
+
+You can add event handlers to element using *.on()* function:
+
+```javascript
+
+SUL("#id").on("click", function(event) {
+	alert("Hello World!");
+});
+
+```
+
+### Chaining
 
 Note, that SUL supports chaining.
 
