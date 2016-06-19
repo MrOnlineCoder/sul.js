@@ -110,4 +110,4 @@ Note, that SUL supports chaining.
 SUL("#id").html("Hello World!").show();
 ```
 
-**See test.html for working example**
+**See example.html for working example**
