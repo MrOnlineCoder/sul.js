@@ -5,7 +5,15 @@ Simple Utility Library
 
 This library is a "lighter" and "smaller" version of jQuery. You can use it, when you need simple operations with DOM and you do not want to load big library.
 
-**What it supports:**
+**Advantages:**
+
+1.Small size ~5 Kb.
+
+2.Speed - all tests run up to 20 ms.
+
+3.Support - we improve SUL all time.
+
+**Features:**
 
 1.Operations with element contents (html, value, etc) (DONE)
 
@@ -15,14 +23,16 @@ This library is a "lighter" and "smaller" version of jQuery. You can use it, whe
 
 4.Events (DONE)
 
-5.Simplified AJAX (TODO)
+5.Simplified AJAX (WIP)
 
+## Getting SUL
 
-**What it WON'T support:**
+You can always get SUL using next links:
 
-1.Data-atrributes
+[Normal](https://raw.githubusercontent.com/MrOnlineCoder/sul.js/master/src/sul.js)
 
-2.Advanced effects 
+[Minified](https://raw.githubusercontent.com/MrOnlineCoder/sul.js/master/dist/sul.js)
+
 
 ## Documentation:
 

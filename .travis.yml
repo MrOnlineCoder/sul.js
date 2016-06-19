@@ -1,4 +1,4 @@
-sudo: required
+sudo: true
 before_script:
   - npm install
 script: gulp
