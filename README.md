@@ -1,5 +1,6 @@
 # sul.js
 ![TravisCI Build image](https://travis-ci.org/MrOnlineCoder/sul.js.svg?branch=master)
+
 Simple Utility Library
 
 This library is a "lighter" and "smaller" version of jQuery. You can use it, when you need simple operations with DOM and you do not want to load big library.
