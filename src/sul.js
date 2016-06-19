@@ -5,9 +5,10 @@
 	2016
 */
 
-'use strict';
 
 (function () {
+
+	"use strict";
 
 	//#########
 	//Global Part
@@ -26,7 +27,7 @@
 	}
 
 	SUL_Object.prototype.html = function(val) {
-		if (val == undefined || val == null) {
+		if (val === undefined || val === null) {
 			return this.native.innerHTML;
 		}
 
@@ -35,7 +36,7 @@
 	};
 
 	SUL_Object.prototype.val = function(newval) {
-		if (newval == undefined || newval == null) {
+		if (newval === undefined || newval === null) {
 			return this.native.value;
 		}
 
@@ -75,7 +76,7 @@
 
 	function SUL(selector) {
 		return new SUL_Object(document.querySelector(selector));
-	};
+	}
 
 
 	//#########
@@ -123,7 +124,7 @@
 			    callback(xhr.responseText);
 			  }
 
-			}
+			};
 		},
 
 		get: function(url, callback, options) {
@@ -132,7 +133,7 @@
 
 			this.ajax("GET", url, {}, callback, options);
 		}
-	}
+	};
 
 	//#########
 	//End
