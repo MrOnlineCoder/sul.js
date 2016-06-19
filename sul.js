@@ -82,15 +82,62 @@
 	///AJAX Part
 	//#########
 
-	function SULX() {
-		
-	}
+	var SULX =  {
 
+		globalOptions: {
+			async: true,
+			contentType: "application/x-www-form-urlencoded",
+			ajaxHeader: true
+		},
+
+		ajax: function(method, url, data, callback, options) {
+			if (method.toUpperCase() != "GET" || method.toUpperCase() != "POST") {
+				console.log("[SUL AJAX] Invalid method. Use GET or POST");
+				return;
+			}
+
+			var xhr = new XMLHttpRequest();
+
+			xhr.open(method, url, options.async);
+
+			xhr.setRequestHeader("Content-Type", options.contentType);
+
+			if (options.ajaxHeader) {
+				xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+			}
+
+			if (data == {}) {
+				xhr.send();
+			} else {
+				xhr.send(data);
+			}
+
+
+
+			xhr.onreadystatechange = function() {
+			  if (xhr.readyState != 4) return;
+
+			  if (xhr.status != 200) {
+			   	return false;
+			  } else {
+			    callback(xhr.responseText);
+			  }
+
+			}
+		},
+
+		get: function(url, callback, options) {
+			callback = callback || sulNoop;
+			options = options || globalOptions;
+
+			this.ajax("GET", url, {}, callback, options);
+		}
+	}
 
 	//#########
 	//End
 	//#########
 	
 	window.SUL = SUL;
-	//window.SULX = SULX;
+	window.SULX = SULX;
 }());
