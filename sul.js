@@ -79,9 +79,18 @@
 
 
 	//#########
+	///AJAX Part
+	//#########
+
+	function SULX() {
+		
+	}
+
+
+	//#########
 	//End
 	//#########
 	
 	window.SUL = SUL;
-	window.SULX = SULX_Object;
+	//window.SULX = SULX;
 }());
