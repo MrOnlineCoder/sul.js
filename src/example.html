@@ -34,6 +34,11 @@
 		<div id="testEvent">Click me</div><br>
 		<br>
 		<br>
+	7.AJAX
+		<button onclick="testAjax();">Test GET</button><br>
+		<div id="ajax"></div>
+		<br>
+		<br>
 	<script src="sul.js"></script>
 	<script type="text/javascript">
 		console.log("[1] "+SUL("#test").html());
@@ -72,6 +77,12 @@
 		function testRemoveClass() {
 			SUL("#testClass").removeClass("foo");
 			alert("Does element have class foo? - "+SUL("#testClass").hasClass("foo"));
+		}
+
+		function testAjax() {
+			SULX.get("http://jsonplaceholder.typicode.com/posts/1", function(status,data) {
+				SUL("#ajax").html(data);
+			});
 		}
 	</script>
 </body>

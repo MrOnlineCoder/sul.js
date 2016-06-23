@@ -7,9 +7,9 @@ This library is a "lighter" and "smaller" version of jQuery. You can use it, whe
 
 **Advantages:**
 
-1.Small size ~5 Kb.
+1.Small size ~2 Kb.
 
-2.Speed - all tests run up to 20 ms.
+2.Speed - all tests run up to 15 ms.
 
 3.Support - we improve SUL all time.
 
@@ -23,7 +23,7 @@ This library is a "lighter" and "smaller" version of jQuery. You can use it, whe
 
 4.Events (DONE)
 
-5.Simplified AJAX (WIP)
+5.Simplified AJAX (DONE)
 
 ## Getting SUL
 
@@ -112,6 +112,42 @@ SUL("#id").on("click", function(event) {
 	alert("Hello World!");
 });
 
+```
+
+7.AJAX
+
+You can do AJAX requests using SULX (SUL AJAX) object:
+
+```javascript
+
+//Do a GET request
+SULX.get(url, callback, options);
+
+//Do a POST request
+SULX.post(url, data, callback, options);
+
+```
+
+Where:
+
+**url** - target URL
+
+**data** - data, that will be sent with POST request
+
+**callback(status, data)** - the callback function, which will be called when request will be
+finished. The status argument is status code from server, and data is data from server (will be null if request failed)
+
+**options** - options for AJAX request, must be an object. By default, global options used, but you can use custom or edit globalOptions, so they will be applied for all next requests.
+
+Example of options object:
+
+```javascript
+
+var options = {};
+
+options.async = true; //Should request be async?
+options.contentType = "application/x-www-form-urlencoded"; // Content-Type header
+options.ajaxHeader = true; //Should SUL include AJAX header in request? (X-Requested-With)
 ```
 
 ### Chaining

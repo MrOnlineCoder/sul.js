@@ -92,7 +92,7 @@
 		},
 
 		ajax: function(method, url, data, callback, options) {
-			if (method.toUpperCase() != "GET" || method.toUpperCase() != "POST") {
+			if (method.toUpperCase() != "GET" && method.toUpperCase() != "POST") {
 				console.log("[SUL AJAX] Invalid method. Use GET or POST");
 				return;
 			}
@@ -119,9 +119,9 @@
 			  if (xhr.readyState != 4) return;
 
 			  if (xhr.status != 200) {
-			   	return false;
+			   	callback(xhr.status, null);
 			  } else {
-			    callback(xhr.responseText);
+			    callback(xhr.status, xhr.responseText);
 			  }
 
 			};
@@ -129,9 +129,17 @@
 
 		get: function(url, callback, options) {
 			callback = callback || sulNoop;
-			options = options || globalOptions;
+			options = options || this.globalOptions;
 
 			this.ajax("GET", url, {}, callback, options);
+		},
+
+		post: function(url, data, callback, options) {
+			callback = callback || sulNoop;
+			data = data || {};
+			options = options || this.globalOptions;
+
+			this.ajax("POST", url, data, callback, options);
 		}
 	};
 
