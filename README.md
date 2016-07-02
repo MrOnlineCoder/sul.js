@@ -1,7 +1,7 @@
 # sul.js
 ![TravisCI Build image](https://travis-ci.org/MrOnlineCoder/sul.js.svg?branch=master)
 
-Simple Utility Library
+Simple but Usable Library
 
 This library is a "lighter" and "smaller" version of jQuery. You can use it, when you need simple operations with DOM and you do not want to load big library.
 
@@ -25,6 +25,8 @@ This library is a "lighter" and "smaller" version of jQuery. You can use it, whe
 
 5.Simplified AJAX (DONE)
 
+6.Selecting multiple elements
+
 ## Getting SUL
 
 You can always get SUL using next links:
@@ -41,19 +43,32 @@ You can always get SUL using next links:
 Use *SUL()* function to get the SUL wrapper of DOM element.
 ```javascript
 
-SUL("#id");
+SUL("selector");
 
 ```
+
+where *selector* - is just a list of CSS selectors seperated by comma:
+
+```javascript
+
+SUL("#aloneElement"); // => you will work with element with ID aloneElement
+
+SUL("#happyElement, #hisFriend") // => elements with IDs happyElement and #hisFriend will be selected
+
+SUL(".someElements") // => elements with class someElements will be selected
+
+```
+
 2.Working with inner HTML
 
 Use *.html()* function to get or update inner HTML of element.
 
 ```javascript
 //Get contents
-var html = SUL("#id").html();
+var html = SUL("").html();
 
 //Update contents
-SUL("#id").html("Updated content");
+SUL("selector").html("Updated content");
 
 ```
 
@@ -63,10 +78,10 @@ Use *.val()* function to get or update value of input element.
 
 ```javascript
 //Get value
-var value = SUL("#id").val();
+var value = SUL("selector").val();
 
 //Update value
-SUL("#id").val("Updated value");
+SUL("selector").val("Updated value");
 ```
 
 4.Show/Hide element
@@ -75,10 +90,10 @@ Use *.hide()* and *.show()* function to toggle element visibility.
 
 ```javascript
 //Hide element
-SUL("#id").hide();
+SUL("selector").hide();
 
 //Show element
-SUL("#id").show();
+SUL("selector").show();
 ```
 
 5.CSS Classes
@@ -86,7 +101,7 @@ SUL("#id").show();
 Use *.hasClass()* function to check, if element has specified class.
 ```javascript
 
-SUL("#id").hasClass("awesomeclass");
+SUL("selector").hasClass("awesomeclass");
 
 ```
 
@@ -95,10 +110,10 @@ Use *.addClass()* and *.removeClass()* functions to remove or add classes.
 ```javascript
 
 //Add class
-SUL("#id").addClass("awesomeclass");
+SUL("selector").addClass("awesomeclass");
 
 //Remove class
-SUL("#id").removeClass("awesomeclass");
+SUL("selector").removeClass("awesomeclass");
 
 ```
 
@@ -108,7 +123,7 @@ You can add event handlers to element using *.on()* function:
 
 ```javascript
 
-SUL("#id").on("click", function(event) {
+SUL("selector").on("click", function(event) {
 	alert("Hello World!");
 });
 
@@ -155,7 +170,7 @@ options.ajaxHeader = true; //Should SUL include AJAX header in request? (X-Reque
 Note, that SUL supports chaining.
 
 ```javascript
-SUL("#id").html("Hello World!").show();
+SUL("selector").html("Hello World!").show();
 ```
 
 **See example.html for working example**

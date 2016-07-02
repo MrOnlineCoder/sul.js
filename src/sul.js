@@ -22,60 +22,139 @@
 	//DOM Part
 	//#########
 
-	function SUL_Object(domElement) {
-		this.native = domElement;
+	function SUL_Object(selector) {
+		var elements = [];
+		// If selector is real node
+		if (selector.nodeType) {
+			elements.push(selector);
+		}
+
+		if (typeof(selector) != "string") {
+			throw "[SUL] Given selector is not a string or node: "+selector;
+		}
+
+		var tokens = selector.split(",");
+		for (var i=0;i<tokens.length;i++) {
+			var token = tokens[i].trim();
+
+			//Faster way to get element
+			if (token.charAt(0) == "#") {
+				elements.push(document.getElementById(token.substring(1)));
+			} else {
+				var tokenElems = document.querySelectorAll(token);
+				for (var j=0;j<tokenElems.length;j++) {
+					console.log(tokenElems[j]);
+					elements.push(tokenElems[j]);
+				}
+			}
+			
+		}
+
+		this.native = elements;
 	}
+
+	SUL_Object.prototype.each = function(callback) {
+		for (var i=0;i<this.native.length;i++) {
+			callback.call(this, this.native[i]);
+		}
+	};
 
 	SUL_Object.prototype.html = function(val) {
 		if (val === undefined || val === null) {
-			return this.native.innerHTML;
+			return this.native[0].innerHTML;
 		}
 
-		this.native.innerHTML = val;
+		this.each(function(e) {
+				e.innerHTML = val;
+		});
+
 		return this;
 	};
 
 	SUL_Object.prototype.val = function(newval) {
 		if (newval === undefined || newval === null) {
-			return this.native.value;
+			return this.native[0].value;
 		}
 
-		this.native.value = newval;
+		this.each(function(e) {
+				e.value = newval;
+		});
 		return this;
 	};
 
 
 	SUL_Object.prototype.hide = function() {
-		this.native.style.display = "none";
+		this.each(function(e) {
+			e.style.display = "none";
+		});
 		return this;
 	};
 
 	SUL_Object.prototype.show = function() {
-		this.native.style.display = "block";
+		this.each(function(e) {
+			e.style.display = "block";
+		});
 		return this;
 	};
 
 	SUL_Object.prototype.hasClass = function(c) {
-		return this.native.className.indexOf(c) > -1;
+		var found = false;
+
+		this.each(function(e) {
+			if (e.className.indexOf(c) > -1) {
+				found = true;
+				return;
+			}
+		});
+
+		return found;
 	};
 
 	SUL_Object.prototype.addClass = function(c) {
-		this.native.className += (" "+c); 
+		this.each(function(e) {
+			e.className += (" "+c); 
+		});
 		return this;
 	};
 
 	SUL_Object.prototype.removeClass = function(c) {
-		this.native.className = this.native.className.replace(c, "").trim();
+		this.each(function(e) {
+			e.className = e.className.replace(c, "").trim();
+		});
 		return this;
 	};
 
 	SUL_Object.prototype.on = function(event, handler) {
-		this.native.addEventListener(event, handler);
+		this.each(function(e) {
+			e.addEventListener(event, handler);
+		});
+
 		return this;
 	};
 
+	SUL_Object.prototype.isEmpty = function() {
+		if (this.native[0].tagName != "INPUT") {
+			console.err("[SUL] Element is not an input: "+this.native[0].id);
+			return null;
+		}
+
+		return (this.native[0].value === null || this.native[0].value === "");
+	};
+
+	SUL_Object.prototype.getNative = function() {
+		if (this.native.length == 1) {
+			return this.native[0];
+		} else {
+			return this.native;
+		}
+	};
+
+	SUL_Object.prototype.getFirst = function() {
+		return this.native[0];
+	};
+
 	function SUL(selector) {
-		return new SUL_Object(document.querySelector(selector));
+		return new SUL_Object(selector);
 	}
 
 

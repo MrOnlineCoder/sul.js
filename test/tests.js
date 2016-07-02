@@ -7,6 +7,7 @@ QUnit.test( "SUL and SUL_Object", function( assert ) {
 
 var div = SUL("#testDiv");
 var input = SUL("#testInput");
+var divs = SUL(".testclass");
 
 QUnit.test( "HTML and Value", function( assert ) {
   assert.equal(div.html(), "Testing DIV", ".html() returns correct value" );
@@ -20,10 +21,10 @@ QUnit.test( "HTML and Value", function( assert ) {
 
 QUnit.test( "Hiding and Showing Element", function( assert ) {
   assert.ok(typeof (div.hide()) == "object", ".hide() supports chaining" );
-  assert.equal(div.native.style.display, "none", ".hide() hides the element" );
+  assert.equal(div.getNative().style.display, "none", ".hide() hides the element" );
 
   assert.ok(typeof (div.show()) == "object", ".show() supports chaining" );
-  assert.equal(div.native.style.display, "block", ".show() shows the element" );
+  assert.equal(div.getNative().style.display, "block", ".show() shows the element" );
 });
 
 QUnit.test( "CSS Classes", function( assert ) {
@@ -34,4 +35,14 @@ QUnit.test( "CSS Classes", function( assert ) {
   
   assert.ok(typeof (div.removeClass("anotherClass")) == "object", ".removeClass() supports chaining" );
   assert.ok(!div.hasClass("anotherClass"), ".removeClass() removes the class from element" );
+});
+
+QUnit.test( "SUL Selectors", function( assert ) {
+  assert.ok(divs !== null, "class selector with SUL() returns non-null object" );
+
+  assert.ok(typeof (divs.getNative()) == "object", ".getNative() returns Object" );
+  assert.equal(divs.getNative().length, 2, "all divs were selected" );
+  assert.ok(typeof (divs.html("This html was changed")) == "object", ".html() still supports chaining" );
+  
+  assert.equal(divs.getNative()[1].innerHTML, "This html was changed", ".html() works with multiple elements" );
 });

@@ -39,9 +39,13 @@
 		<div id="ajax"></div>
 		<br>
 		<br>
+	8.SUL Selectors
+		<br>
+		<button onclick="testSelectors()">Change next DIVS html</button>
+		<div class="tochange">1 Div</div>
+		<div class="tochange">2 Div</div>
 	<script src="sul.js"></script>
 	<script type="text/javascript">
-		console.log("[1] "+SUL("#test").html());
 		SUL("#testEvent").on("click", function() {
 			alert("Clicked!");
 		});
@@ -83,6 +87,10 @@
 			SULX.get("http://jsonplaceholder.typicode.com/posts/1", function(status,data) {
 				SUL("#ajax").html(data);
 			});
+		}
+
+		function testSelectors() {
+			SUL(".tochange").html("YAY!");
 		}
 	</script>
 </body>
