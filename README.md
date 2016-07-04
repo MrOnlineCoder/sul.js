@@ -7,7 +7,7 @@ This library is a "lighter" and "smaller" version of jQuery. You can use it, whe
 
 **Advantages:**
 
-1.Small size ~2 Kb.
+1.Small size ~4 Kb.
 
 2.Speed - all tests run up to 15 ms.
 
@@ -65,7 +65,7 @@ Use *.html()* function to get or update inner HTML of element.
 
 ```javascript
 //Get contents
-var html = SUL("").html();
+var html = SUL("selector").html();
 
 //Update contents
 SUL("selector").html("Updated content");

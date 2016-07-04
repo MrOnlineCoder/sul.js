@@ -43,7 +43,6 @@
 			} else {
 				var tokenElems = document.querySelectorAll(token);
 				for (var j=0;j<tokenElems.length;j++) {
-					console.log(tokenElems[j]);
 					elements.push(tokenElems[j]);
 				}
 			}
