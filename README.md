@@ -143,24 +143,6 @@ SULX.post(url, data, callback, options);
 
 ```
 
-Some useful function:
-
-1.Add options to **select** tag
-
-```javascript
-
-SUL("selector").addOption("foobar");
-
-```
-
-2.Check if **input** is empty:
-
-```javascript
-
-SUL("selector").isEmpty();
-
-```
-
 Where:
 
 **url** - target URL
@@ -181,6 +163,25 @@ var options = {};
 options.async = true; //Should request be async?
 options.contentType = "application/x-www-form-urlencoded"; // Content-Type header
 options.ajaxHeader = true; //Should SUL include AJAX header in request? (X-Requested-With)
+
+```
+
+### Utilities/useful functions
+
+1.Add options to **select** tag
+
+```javascript
+
+SUL("selector").addOption("foobar");
+
+```
+
+2.Check if **input** is empty:
+
+```javascript
+
+SUL("selector").isEmpty();
+
 ```
 
 ### Chaining
