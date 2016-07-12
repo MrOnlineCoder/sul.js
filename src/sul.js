@@ -101,6 +101,14 @@
 		});
 	};
 
+	SUL_Object.prototype.index = function(text) {
+		this.each(function(e) {
+			if (e.tagName == "SELECT") {
+				return e.selectedIndex;
+			}
+		});
+	};
+
 	SUL_Object.prototype.show = function() {
 		this.each(function(e) {
 			e.style.display = "block";

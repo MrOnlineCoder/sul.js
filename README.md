@@ -184,6 +184,14 @@ SUL("selector").isEmpty();
 
 ```
 
+3.Get selected index of **select** tag.
+
+```javascript
+
+SUL("selector").index();
+
+```
+
 ### Chaining
 
 Note, that SUL supports chaining.
