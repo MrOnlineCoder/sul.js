@@ -44,6 +44,12 @@
 		<button onclick="testSelectors()">Change next DIVS html</button>
 		<div class="tochange">1 Div</div>
 		<div class="tochange">2 Div</div>
+	9.Adding options
+		<br>
+		<button onclick="testOptions()">Add some options</button>
+		<select id="testSelect">
+			<option>Nothing here...</option>
+		</select>
 	<script src="sul.js"></script>
 	<script type="text/javascript">
 		SUL("#testEvent").on("click", function() {
@@ -91,6 +97,11 @@
 
 		function testSelectors() {
 			SUL(".tochange").html("YAY!");
+		}
+
+		function testOptions() {
+			SUL("#testSelect").addOption("foo");
+			SUL("#testSelect").addOption("bar");
 		}
 	</script>
 </body>

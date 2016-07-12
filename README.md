@@ -143,6 +143,24 @@ SULX.post(url, data, callback, options);
 
 ```
 
+Some useful function:
+
+1.Add options to **select** tag
+
+```javascript
+
+SUL("selector").addOption("foobar");
+
+```
+
+2.Check if **input** is empty:
+
+```javascript
+
+SUL("selector").isEmpty();
+
+```
+
 Where:
 
 **url** - target URL

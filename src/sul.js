@@ -89,6 +89,18 @@
 		return this;
 	};
 
+	SUL_Object.prototype.addOption = function(text) {
+		var toAdd = document.createElement("option");
+		toAdd.text = text;
+		toAdd.value = text;
+
+		this.each(function(e) {
+			if (e.tagName == "SELECT") {
+				e.add(toAdd);
+			}
+		});
+	}
+
 	SUL_Object.prototype.show = function() {
 		this.each(function(e) {
 			e.style.display = "block";
