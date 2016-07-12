@@ -99,7 +99,7 @@
 				e.add(toAdd);
 			}
 		});
-	}
+	};
 
 	SUL_Object.prototype.show = function() {
 		this.each(function(e) {
