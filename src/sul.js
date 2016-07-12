@@ -102,11 +102,15 @@
 	};
 
 	SUL_Object.prototype.index = function(text) {
+		var idx = null;
 		this.each(function(e) {
 			if (e.tagName == "SELECT") {
-				return e.selectedIndex;
+				idx = e.selectedIndex;
+				return;
 			}
 		});
+
+		return idx;
 	};
 
 	SUL_Object.prototype.show = function() {
