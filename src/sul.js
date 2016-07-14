@@ -18,6 +18,7 @@
 		// nope :)
 	}
 
+
 	//#########
 	//DOM Part
 	//#########
@@ -181,6 +182,7 @@
 	}
 
 
+
 	//#########
 	///AJAX Part
 	//#########
@@ -251,4 +253,13 @@
 	
 	window.SUL = SUL;
 	window.SULX = SULX;
+	window.SULasJQuery = function (mode) {
+		if (mode) {
+			window.$ = SUL;
+		} else {
+			window.$ = window.JQuery || null;
+		}
+
+		if (!window.$) console.error("[SUL] JQuery is not defined! $ shorthand is not avaliable!");
+	};
 }());

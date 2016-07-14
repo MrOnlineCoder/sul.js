@@ -192,6 +192,24 @@ SUL("selector").index();
 
 ```
 
+4.You can also use **$()** function instead of **SUL()** like in JQuery. Note, that you have to define it before using. Use **SULasJQuery(mode)**:
+
+```javascript
+
+SULasJQuery(true);
+
+//$() is now implemented by SUL
+
+$("#foobar").html();
+
+//You can disable it too:
+
+SULasJQuery(false); // If JQuery is connected, $ will have JQuery implementation. If not, $ will be null 
+
+$("#foobar").hide(); // => this will work only if JQuery is connected!
+
+```
+
 ### Chaining
 
 Note, that SUL supports chaining.

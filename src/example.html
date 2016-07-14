@@ -50,8 +50,14 @@
 		<select id="testSelect">
 			<option>Nothing here...</option>
 		</select>
+		<br>
+	10.Shorthand $
+		<br>
+		<p id="testShorthand">This text will be changed using $() function when you press the button below</p>
+		<button onclick="$('#testShorthand').html('YAY!');">Make it rain!</button>
 	<script src="sul.js"></script>
 	<script type="text/javascript">
+		SULasJQuery(true);
 		SUL("#testEvent").on("click", function() {
 			alert("Clicked!");
 		});
@@ -103,6 +109,8 @@
 			SUL("#testSelect").addOption("foo");
 			SUL("#testSelect").addOption("bar");
 		}
+
+
 	</script>
 </body>
 </html>
