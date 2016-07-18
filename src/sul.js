@@ -90,6 +90,13 @@
 		return this;
 	};
 
+	SUL_Object.prototype.focus = function() {
+		this.each(function(e) {
+			e.focus();
+		});
+		return this;
+	};
+
 	SUL_Object.prototype.addOption = function(text) {
 		var toAdd = document.createElement("option");
 		toAdd.text = text;
