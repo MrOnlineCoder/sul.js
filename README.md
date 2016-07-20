@@ -210,6 +210,24 @@ $("#foobar").hide(); // => this will work only if JQuery is connected!
 
 ```
 
+5.Use **.clear()** function to clear input fields and textareas:
+
+```javascript
+
+SUL("#selector").clear();
+
+```
+
+6.If you want to get native DOM element, just use **.getNative()** function:
+
+```javascript
+
+SUL("#oneElement").getNative(); // => will return one element
+
+SUL(".fewElements").getNative(); // => will return an array of elements
+
+```
+
 ### Chaining
 
 Note, that SUL supports chaining.
@@ -217,5 +235,7 @@ Note, that SUL supports chaining.
 ```javascript
 SUL("selector").html("Hello World!").show();
 ```
+
+#### Want to add a function? Send us a pull request!
 
 **See example.html for working example**

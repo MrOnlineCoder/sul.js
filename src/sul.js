@@ -28,26 +28,25 @@
 		// If selector is real node
 		if (selector.nodeType) {
 			elements.push(selector);
-		}
+		} else {
+			if (typeof(selector) != "string") {
+				throw "[SUL] Given selector is not a string or node: "+selector;
+			}
 
-		if (typeof(selector) != "string") {
-			throw "[SUL] Given selector is not a string or node: "+selector;
-		}
+			var tokens = selector.split(",");
+			for (var i=0;i<tokens.length;i++) {
+				var token = tokens[i].trim();
 
-		var tokens = selector.split(",");
-		for (var i=0;i<tokens.length;i++) {
-			var token = tokens[i].trim();
-
-			//Faster way to get element
-			if (token.charAt(0) == "#") {
-				elements.push(document.getElementById(token.substring(1)));
-			} else {
-				var tokenElems = document.querySelectorAll(token);
-				for (var j=0;j<tokenElems.length;j++) {
-					elements.push(tokenElems[j]);
+				//Faster way to get element
+				if (token.charAt(0) == "#") {
+					elements.push(document.getElementById(token.substring(1)));
+				} else {
+					var tokenElems = document.querySelectorAll(token);
+					for (var j=0;j<tokenElems.length;j++) {
+						elements.push(tokenElems[j]);
+					}
 				}
 			}
-			
 		}
 
 		this.native = elements;
@@ -65,7 +64,7 @@
 		}
 
 		this.each(function(e) {
-				e.innerHTML = val;
+			e.innerHTML = val;
 		});
 
 		return this;
@@ -77,7 +76,7 @@
 		}
 
 		this.each(function(e) {
-				e.value = newval;
+			e.value = newval;
 		});
 		return this;
 	};
@@ -164,12 +163,26 @@
 	};
 
 	SUL_Object.prototype.isEmpty = function() {
-		if (this.native[0].tagName != "INPUT") {
-			console.err("[SUL] Element is not an input: "+this.native[0].id);
-			return null;
-		}
+		var found = false;
 
-		return (this.native[0].value === null || this.native[0].value === "");
+		this.each(function(e) {
+			if (e.tagName != "INPUT") {
+				if (e.value === "" || e.value === null) {
+					found = true;
+					return;
+				}
+			}
+		});
+
+
+		return found;
+	};
+
+	SUL_Object.prototype.clear = function() {
+		this.each(function(e) {
+			e.value = "";
+		});
+		return this;
 	};
 
 	SUL_Object.prototype.getNative = function() {

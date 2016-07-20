@@ -15,6 +15,7 @@
 		<input id="testInput"><br>
 		<button onclick="testValUpdate()">Update value</button><br>
 		<button onclick="testVal()">Get value</button><br>
+		<button onclick="testValClear()">Clear value</button><br>
 		<br>
 		<br>
 	4.Show/Hide
@@ -68,7 +69,9 @@
 		function testValUpdate() {
 			SUL("#testInput").val("YAY!");
 		}
-
+		function testValClear() {
+			SUL("#testInput").clear();
+		}
 		function testVal() {
 			alert(SUL("#testInput").val());
 		}
