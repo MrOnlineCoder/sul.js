@@ -162,11 +162,25 @@
 		return this;
 	};
 
+	SUL_Object.prototype.append = function(content) {
+		this.each(function(e) {
+			if (typeof(content) === "string") {
+				e.innerHTML = e.innerHTML + content;
+			} else if (typeof(content) === "object") {
+				if (content.nodeType) {
+					e.appendChild(content);
+				}
+			}
+		});
+
+		return this;
+	};
+
 	SUL_Object.prototype.isEmpty = function() {
 		var found = false;
 
 		this.each(function(e) {
-			if (e.tagName != "INPUT") {
+			if (e.tagName == "INPUT") {
 				if (e.value === "" || e.value === null) {
 					found = true;
 					return;

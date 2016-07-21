@@ -72,6 +72,16 @@ SUL("selector").html("Updated content");
 
 ```
 
+You can also append to element:
+
+```javascript
+
+SUL("selector").append("<p>Go Away!</p>"); // => Append HTML
+
+SUL("selector").append(element); // => append DOM element
+
+```
+
 3.Working with input values
 
 Use *.val()* function to get or update value of input element.
