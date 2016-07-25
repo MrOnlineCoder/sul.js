@@ -106,6 +106,17 @@ SUL("selector").hide();
 SUL("selector").show();
 ```
 
+That functions will toggle **display** CSS property (block<=>none), if you want to toggle **visibility** property, use **.visibility()** function:
+
+```javascript
+//Hide element
+SUL("selector").visibility(false);
+
+//Show element
+SUL("selector").visibility(true);
+```
+
+
 5.CSS Classes
 
 Use *.hasClass()* function to check, if element has specified class.
@@ -237,6 +248,18 @@ SUL("#oneElement").getNative(); // => will return one element
 SUL(".fewElements").getNative(); // => will return an array of elements
 
 ```
+
+7.Changing/getting CSS style of element is possible using **.css()** function:
+
+```javascript
+
+SUL("selector").css("color"); // => will return color CSS property of first-matched element
+
+SUL("selector").css("font-family", "verdana"); // => will change font-family CSS property to verdana of EACH element. 
+
+```
+
+
 
 ### Chaining
 
