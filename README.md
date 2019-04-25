@@ -5,6 +5,8 @@ Simple but Usable Library
 
 This library is a "lighter" and "smaller" version of jQuery. You can use it, when you need simple operations with DOM and you do not want to load big library.
 
+*Please note, that I do not longer maintain this library.*
+
 **Advantages:**
 
 1.Small size ~4 Kb.
